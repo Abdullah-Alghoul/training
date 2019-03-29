@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<!-- Search View -->
+		<record model="ir.ui.view" id="ark_resto_order_search">
+			<field name="name">ark.resto.order.search</field>
+			<field name="model">ark.resto.order</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name"/>
+					<field name="line"/>
+					<filter name="fl_rp" string="Rupiah" domain="[('currency', '=', 'rp')]"/>
+					<filter name="fl_usd" string="Dollar" domain="[('currency', '=', 'usd')]"/>
+					<separator/>
+					<filter name="fl_check" string="Check ?" domain="[('to_check', '=', True)]"/>
+					<group>
+						<filter name="gr_customer" string="Pelanggan" context="{'group_by':'customer'}"/>
+						<separator/>
+						<filter name="gr_day" string="Tanggal Pesan" context="{'group_by':'date_order'}"/>
+						<filter name="gr_pay" string="Bayar Via" context="{'group_by':'pay_method'}"/>
+						<filter name="gr_currency" string="Valas" context="{'group_by':'currency'}"/>
+						<filter name="gr_check" string="Check ?" context="{'group_by':'to_check'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- Calendar View -->
+		<record model="ir.ui.view" id="ark_resto_order_calendar">
+			<field name="name">ark.resto.order.calendar</field>
+			<field name="model">ark.resto.order</field>
+			<field name="arch" type="xml">
+				<calendar 
+					date_start="date_order" 
+					mode="month" 
+					color="pay_method"
+					quick_add="false"
+					>
+					<field name="name"/>
+				</calendar>
+			</field>
+		</record>
+
+		<!-- List View (Tree) -->
+		<record model="ir.ui.view" id="ark_resto_order_tree">
+			<field name="name">ark.resto.order.tree</field>
+			<field name="model">ark.resto.order</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="customer"/>
+					<field name="pay_method"/>
+					<field name="date_order"/>
+					<field name="currency"/>
+					<field name="amount_total" sum="Total"/>
+					<field name="user"/>
+				</tree>
+			</field>
+		</record>
+		
+	   <!-- Form View -->
+		<record model="ir.ui.view" id="ark_resto_order_form">
+			<field name="name">ark.resto.order.form</field>
+			<field name="model">ark.resto.order</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group string="Order Detail">
+								<field name="name"/>
+								<field name="customer"/>
+								<field name="date_order"/>
+								<field name="date_paid"/>
+								<field name="user"/>
+							</group>
+							<group string="Payment">
+								<field name="currency" required="1"/>
+								<field name="pay_method"/>
+								<field name="pay_ref" attrs="{'invisible':[('pay_method', '=', 'cash')]}"/>
+								<field name="amount_total"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Line">
+								<field name="line"/>
+							</page>
+							<page string="Other Info">
+								<group>
+									<field name="to_check"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="ark_resto_order_action">
+			<field name="name">Resto Order</field>
+			<field name="res_model">ark.resto.order</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+			id="kakek_ark_resto_order" 
+			name="Kakek Resto Order" 
+		/>
+
+		<menuitem 
+			id="bapak_ark_resto_order" 
+			name="Bapak Resto Order" 
+			parent="kakek_ark_resto_order"
+		/>
+
+		<menuitem 
+			id="anak_ark_resto_order" 
+			name="Anak Resto Order" 
+			parent="bapak_ark_resto_order"
+
+		   sequence="40"
+
+			action="ark_resto_order_action" 
+		/>
+
+	</data>
+</odoo>

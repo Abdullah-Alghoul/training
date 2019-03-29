@@ -1,0 +1,9 @@
+id,name,user,customer,date_order,date_paid,currency,pay_method,amount_total,line
+ark_resto_order_1,ORD-001,Admin,Radit,2019-02-25 13:31:41,2019-02-25,rp,cash,80000,1. Es Cappuccino | 1 | 20000 2. Es Puding | 2 | 30000
+ark_resto_order_2,ORD-002,Admin,Ifadh,2019-02-25 13:51:41,2019-02-25,rp,gopie,80000,1. Es Cappuccino | 1 | 20000 2. Es Puding | 2 | 30000
+ark_resto_order_3,ORD-003,Admin,Gharta,2019-03-17 09:11:41,2019-03-17,rp,cash,35000,1. Es Cappuccino | 1 | 20000 2. Milkshake | 1 | 15000
+ark_resto_order_4,ORD-004,Admin,Joenan,2019-03-17 09:51:01,2019-03-17,rp,gopie,80000,1. Es Cappuccino | 1 | 20000 2. Es Puding | 2 | 30000
+ark_resto_order_5,ORD-005,Admin,Ifadh,2019-03-18 10:11:21,2019-03-01,rp,gopie,80000,1. Es Cappuccino | 1 | 20000 2. Es Puding | 2 | 30000
+ark_resto_order_6,ORD-006,Admin,Rauf,2019-03-27 16:31:41,2019-03-27,rp,cash,35000,1. Es Cappuccino | 1 | 20000 2. Milkshake | 1 | 15000
+ark_resto_order_7,ORD-007,Admin,Fabien,2019-03-28 13:31:41,2019-03-28,usd,credit,80000,1. Es Cappuccino | 1 | 20000 2. Es Puding | 2 | 30000
+ark_resto_order_8,ORD-008,Admin,Fabien,2019-03-28 13:33:41,2019-03-28,rp,credit,80000,1. Es Cappuccino | 1 | 20000 2. Es Puding | 2 | 30000

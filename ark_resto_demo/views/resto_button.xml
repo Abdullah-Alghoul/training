@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- List View (Tree) -->
+        <record model="ir.ui.view" id="resto_button_tree">
+            <field name="name">resto.button.tree</field>
+            <field name="model">resto.button</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false">
+                    <field name="tanpa_kolom_name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form View -->
+        <record model="ir.ui.view" id="resto_button_form">
+            <field name="name">resto.button.form</field>
+            <field name="model">resto.button</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tanpa_kolom_name"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Popup">
+                                <button name="popup_1" string="Popup (User Error)" type="object" /><br/>
+                                <button name="popup_2" string="Popup Datetime Object" type="object" /><br/>
+                                <button name="popup_3" string="Popup Datetime.now.date()" type="object" /><br/>
+                                <button name="popup_4" string="Popup Datetime.now.time()" type="object" /><br/>
+                            </group>
+                            <group string="Self.env and Browse">
+                                <button name="browse_1" string="Browse (ark.resto.order, 1)" type="object" /><br/>
+                                <button name="browse_2" string="Browse ID = 1, ambil Name" type="object" /><br/>
+                                <button name="browse_3" string="Browse ID = 1, ambil Date Order" type="object" /><br/>
+                                <button name="browse_4" string="Browse (ark.resto.order, 1000)" type="object" /><br/>
+                                <button name="browse_5" string="Browse ID = 1000 ambil Name" type="object" /><br/>
+                            </group>
+                            <group string="Search and Domain">
+                                <button name="search_1" string="Search = Radit" type="object" /><br/>
+                                <button name="search_2" string="Search = Milkshake" type="object" /><br/>
+                                <button name="search_3" string="Search ilike Milkshake" type="object" /><br/>
+                                <button name="search_4" string="Search &lt; 50000" type="object" /><br/>
+                                <button name="search_5" string="Search Check True" type="object" /><br/>
+                                <button string="Amount Total dari Tunai ?" class="oe_highlight" /><br/>
+                                <button string="Amount Total dari Credit ?" class="oe_highlight" /><br/>
+                            </group>
+                            <group string="Write">
+                                <button name="write_1" string="Uncheck All" type="object" /><br/>
+                                <button name="write_2" string="Check All" type="object" /><br/>
+                                <button name="write_3" string="Gopie --> Volvo" type="object" /><br/>
+                                <button string="Volvo -> Gopei (To Do)" class="oe_highlight" /><br/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="resto_button_action">
+            <field name="name">Resto Button</field>
+            <field name="res_model">resto.button</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+            id="anak_resto_button" 
+            name="Control Panel" 
+            parent="bapak_ark_resto_order" 
+            
+            sequence="20"
+            action="resto_button_action" 
+        />
+
+    </data>
+</odoo>
